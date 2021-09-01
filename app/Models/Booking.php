@@ -56,15 +56,15 @@ class Booking extends Model implements HasMedia
         return $this->belongsTo(Service::class, 'type_of_service_id');
     }
 
-    public function getPrefferedDateTimeOfBookingAttribute($value)
-    {
-        return $value ? Carbon::createFromFormat('Y-m-d H:i:s', $value)->format(config('panel.date_format') . ' ' . config('panel.time_format')) : null;
-    }
+    // public function getPrefferedDateTimeOfBookingAttribute($value)
+    // {
+    //     return $value ? Carbon::createFromFormat('Y-m-d H:i:s', $value)->format(config('panel.date_format') . ' ' . config('panel.time_format')) : null;
+    // }
 
-    public function setPrefferedDateTimeOfBookingAttribute($value)
-    {
-        $this->attributes['preffered_date_time_of_booking'] = $value ? Carbon::createFromFormat(config('panel.date_format') . ' ' . config('panel.time_format'), $value)->format('Y-m-d H:i:s') : null;
-    }
+    // public function setPrefferedDateTimeOfBookingAttribute($value)
+    // {
+    //     $this->attributes['preffered_date_time_of_booking'] = $value ? Carbon::createFromFormat(config('panel.date_format') . ' ' . config('panel.time_format'), $value)->format('Y-m-d H:i:s') : null;
+    // }
 
     protected function serializeDate(DateTimeInterface $date)
     {

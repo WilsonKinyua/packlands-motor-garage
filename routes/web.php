@@ -1,6 +1,7 @@
 <?php
 
-Route::redirect('/', '/login');
+Route::get('/', 'HomepageController@index')->name('home.page');
+Route::post('booking/create','HomepageController@createBookings')->name('create.bookings');
 Route::get('/home', function () {
     if (session('status')) {
         return redirect()->route('admin.home')->with('status', session('status'));
