@@ -55,7 +55,8 @@
                               <li><i class="fa fa-phone-square text-theme-colored font-36 mt-5 sm-display-block"></i>
                               </li>
                               <li>
-                                  <a href="tel:{{ trans('panel.phone') }}" class="font-12 text-gray text-uppercase">Call us today!</a>
+                                  <a href="tel:{{ trans('panel.phone') }}"
+                                      class="font-12 text-gray text-uppercase">Call us today!</a>
                                   <h5 class="font-14 m-0"> {{ trans('panel.phone') }}</h5>
                               </li>
                           </ul>
@@ -82,24 +83,15 @@
                       <ul class="menuzord-menu">
                           <li class="active"><a href="/">Home</a>
                           </li>
-                          <li><a href="#">Services</a>
+                          <li><a href="{{ route('all.services') }}">Services</a>
                           </li>
-                          <li><a href="#">About Us</a>
+                          <li><a href="{{ route('about.us') }}">About Us</a>
                           </li>
-                          <li><a href="#">Gallery</a>
+                          <li><a href="{{ route('view.gallery') }}">Gallery</a>
                           </li>
-                          <li><a href="#home">Experts</a>
+                          <li><a href="{{ route('view.experts') }}">Experts</a>
                           </li>
-                          <li><a href="#">Blog</a>
-                          </li>
-                      </ul>
-                      <ul class="pull-right flip hidden-sm hidden-xs">
-                          <li>
-                              <!-- Modal: Book Now Starts -->
-                              <a class="btn btn-colored btn-flat bg-theme-color-2 text-white font-14 bs-modal-ajax-load mt-0 p-25 pr-15 pl-15"
-                                  data-toggle="modal" data-target="#BSParentModal"
-                                  href="ajax-load/reservation-form.html">Book Now</a>
-                              <!-- Modal: Book Now End -->
+                          <li><a href="{{ route('view.blogs') }}">Blog</a>
                           </li>
                       </ul>
                   </nav>

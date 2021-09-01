@@ -1,7 +1,14 @@
 <?php
 
 Route::get('/', 'HomepageController@index')->name('home.page');
-Route::post('booking/create','HomepageController@createBookings')->name('create.bookings');
+Route::post('booking/create', 'HomepageController@createBookings')->name('create.bookings');
+Route::get('/services', 'HomepageController@allServices')->name('all.services');
+Route::get('/about-us', 'HomepageController@about')->name('about.us');
+Route::get('gallery', 'HomepageController@gallery')->name('view.gallery');
+Route::get('experts', 'HomepageController@experts')->name('view.experts');
+Route::get('blogs', 'HomepageController@blog')->name('view.blogs');
+Route::get('blog/{id}', 'HomepageController@blogDetails')->name('blog.details');
+Route::get('service/{id}', 'HomepageController@serviceDetails')->name('service.details');
 Route::get('/home', function () {
     if (session('status')) {
         return redirect()->route('admin.home')->with('status', session('status'));

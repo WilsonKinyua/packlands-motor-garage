@@ -304,7 +304,8 @@
                                         {{ $service->name ?? '' }} <small>(Ksh {{ $service->price ?? '' }})</small>
                                     </h5>
                                     <p>{!! Str::limit($service->description) !!}</p>
-                                    <a class="btn btn-theme-colored btn-sm btn-flat" href="#">View Service</a>
+                                    <a class="btn btn-theme-colored btn-sm btn-flat"
+                                        href="{{ route('service.details', $service->id) }}">View Service</a>
                                 </div>
                             </div>
                         </div>
@@ -690,14 +691,16 @@
                                             </div>
                                         </div>
                                         <div class="entry-content border-1px p-20 bg-white">
-                                            <h5 class="entry-title mt-0 pt-0"><a href="#">{{ $blog->title ?? '' }}</a>
+                                            <h5 class="entry-title mt-0 pt-0"><a
+                                                    href="{{ route('blog.details', $blog->id) }}">{{ $blog->title ?? '' }}</a>
                                             </h5>
                                             <p class="text-left mb-20 mt-15 font-13">{!! Str::limit($blog->description) !!}</p>
                                             <a class="btn btn-flat btn-dark btn-theme-colored btn-sm pull-left"
-                                                href="#">Read
+                                                href="{{ route('blog.details', $blog->id) }}">Read
                                                 more</a>
                                             <ul class="list-inline entry-date pull-right font-12 mt-5">
-                                                <li><a class="text-theme-colored" href="#">Admin |</a></li>
+                                                <li><a class="text-theme-colored"
+                                                        href="{{ route('blog.details', $blog->id) }}">Admin |</a></li>
                                                 <li><span
                                                         class="text-theme-colored">{{ $blog->created_at->diffForHumans() }}</span>
                                                 </li>
