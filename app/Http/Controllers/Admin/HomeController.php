@@ -195,7 +195,7 @@ class HomeController
         }
 
         $settings6 = [
-            'chart_title'           => 'Uers',
+            'chart_title'           => 'Users',
             'chart_type'            => 'latest_entries',
             'report_type'           => 'group_by_date',
             'model'                 => 'App\Models\User',
