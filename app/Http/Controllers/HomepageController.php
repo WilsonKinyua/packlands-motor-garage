@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use App\Models\Booking;
 use App\Models\Service;
 use App\Models\Slider;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class HomepageController extends Controller
@@ -15,7 +17,9 @@ class HomepageController extends Controller
     {
         $sliders = Slider::with(['media'])->get();
         $services = Service::with(['media'])->get();
-        return view('welcome', compact('sliders', 'services'));
+        $experts = User::with(['roles', 'media'])->get();
+        $blogs = Blog::with(['media'])->get();
+        return view('welcome', compact('sliders', 'services', 'experts', 'blogs'));
     }
 
 

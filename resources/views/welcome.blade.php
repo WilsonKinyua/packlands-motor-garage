@@ -334,7 +334,8 @@
                 <div class="col-md-6 bg-img-cover sm-height-auto" data-bg-img="{{ asset('images/bg/bg25.jpg') }}">
                     <div class="p-50 p-sm-0 p-sm-0 pt-sm-30 pb-sm-30">
                         <!-- Reservation Form Start-->
-                        <form name="reservation_form" class="reservation-form" method="post" action="{{ route('create.bookings')}}">
+                        <form name="reservation_form" class="reservation-form" method="post"
+                            action="{{ route('create.bookings') }}">
                             @csrf
                             <h3 class="mt-0 line-bottom text-white mb-30">Book A <span
                                     class="text-theme-color-2 font-weight-600">Service Now!</span></h3>
@@ -410,8 +411,9 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group mb-30">
-                                        <input name="preffered_date_time_of_booking" class="form-control required date-picker"
-                                            type="text" placeholder="Reservation Date" aria-required="true">
+                                        <input name="preffered_date_time_of_booking"
+                                            class="form-control required date-picker" type="text"
+                                            placeholder="Reservation Date" aria-required="true">
                                     </div>
                                 </div>
                                 <div class="col-sm-12">
@@ -443,7 +445,7 @@
             <div class="section-title">
                 <div class="row">
                     <div class="col-md-12">
-                        <p class="text-uppercase mb-0">Best Carfix &amp; Repair Template</p>
+                        <p class="text-uppercase mb-0">Best Carfix &amp; Repair</p>
                         <div class="title-icon">
                             <i class="flaticon-carrepair-mechanic font-48"></i>
                         </div>
@@ -455,106 +457,34 @@
             <div class="row mtli-row-clearfix">
                 <div class="col-md-12">
                     <div class="owl-carousel-4col">
-                        <div class="item">
-                            <div class="team-members maxwidth400">
-                                <div class="team-thumb">
-                                    <img class="img-fullwidth" alt="" src="images/team/sm-1.jpg">
-                                </div>
-                                <div
-                                    class="team-bottom-part border-bottom-theme-color-2-2px border-1px text-center p-10 pt-20 pb-10">
-                                    <h4
-                                        class="text-uppercase font-raleway text-theme-color-2 font-weight-600 line-bottom-center m-0">
-                                        Jhon Anderson</h4>
-                                    <h5 class="mt-0">- Engine Specialist -</h5>
-                                    <ul class="styled-icons icon-sm icon-dark icon-hover-theme-colored">
-                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-skype"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="team-members maxwidth400">
-                                <div class="team-thumb">
-                                    <img class="img-fullwidth" alt="" src="images/team/sm-2.jpg">
-                                </div>
-                                <div
-                                    class="team-bottom-part border-bottom-theme-color-2-2px border-1px text-center p-10 pt-20 pb-10">
-                                    <h4
-                                        class="text-uppercase font-raleway text-theme-color-2 font-weight-600 line-bottom-center m-0">
-                                        Zakaria Smith</h4>
-                                    <h5 class="mt-0">- Engine Specialist -</h5>
-                                    <ul class="styled-icons icon-sm icon-dark icon-hover-theme-colored">
-                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-skype"></i></a></li>
-                                    </ul>
+                        @foreach ($experts as $key => $user)
+                            <div class="item">
+                                <div class="team-members maxwidth400">
+                                    <div class="team-thumb">
+                                        @if ($user->avatar)
+                                            <img class="img-fullwidth" alt="" src="{{ $user->avatar->getUrl() }}">
+                                        @endif
+                                    </div>
+                                    <div
+                                        class="team-bottom-part border-bottom-theme-color-2-2px border-1px text-center p-10 pt-20 pb-10">
+                                        <h4
+                                            class="text-uppercase font-raleway text-theme-color-2 font-weight-600 line-bottom-center m-0">
+                                            {{ $user->name ?? '' }}</h4>
+                                        <h5 class="mt-0">- {{ $user->professional ?? '' }} -</h5>
+                                        <ul class="styled-icons icon-sm icon-dark icon-hover-theme-colored">
+                                            <li><a href="{{ $user->facebook ?? '' }}"><i class="fa fa-facebook"></i></a>
+                                            </li>
+                                            <li><a href="{{ $user->twitter ?? '' }}"><i class="fa fa-twitter"></i></a>
+                                            </li>
+                                            <li><a href="{{ $user->instagram ?? '' }}"><i
+                                                        class="fa fa-instagram"></i></a></li>
+                                            <li><a href="{{ $user->skype ?? '' }}"><i class="fa fa-skype"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="item">
-                            <div class="team-members maxwidth400">
-                                <div class="team-thumb">
-                                    <img class="img-fullwidth" alt="" src="images/team/sm-3.jpg">
-                                </div>
-                                <div
-                                    class="team-bottom-part border-bottom-theme-color-2-2px border-1px text-center p-10 pt-20 pb-10">
-                                    <h4
-                                        class="text-uppercase font-raleway text-theme-color-2 font-weight-600 line-bottom-center m-0">
-                                        David Matthews</h4>
-                                    <h5 class="mt-0">- Engine Specialist -</h5>
-                                    <ul class="styled-icons icon-sm icon-dark icon-hover-theme-colored">
-                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-skype"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="team-members maxwidth400">
-                                <div class="team-thumb">
-                                    <img class="img-fullwidth" alt="" src="images/team/sm-4.jpg">
-                                </div>
-                                <div
-                                    class="team-bottom-part border-bottom-theme-color-2-2px border-1px text-center p-10 pt-20 pb-10">
-                                    <h4
-                                        class="text-uppercase font-raleway text-theme-color-2 font-weight-600 line-bottom-center m-0">
-                                        Andrew Smith</h4>
-                                    <h5 class="mt-0">- Engine Specialist -</h5>
-                                    <ul class="styled-icons icon-sm icon-dark icon-hover-theme-colored">
-                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-skype"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="team-members maxwidth400">
-                                <div class="team-thumb">
-                                    <img class="img-fullwidth" alt="" src="images/team/sm-5.jpg">
-                                </div>
-                                <div
-                                    class="team-bottom-part border-bottom-theme-color-2-2px border-1px text-center p-10 pt-20 pb-10">
-                                    <h4
-                                        class="text-uppercase font-raleway text-theme-color-2 font-weight-600 line-bottom-center m-0">
-                                        Sakib Anderson</h4>
-                                    <h5 class="mt-0">- Engine Specialist -</h5>
-                                    <ul class="styled-icons icon-sm icon-dark icon-hover-theme-colored">
-                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-skype"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -562,7 +492,7 @@
     </section>
 
     <!-- Why Choose Us & Testimonials -->
-    <section class="layer-overlay overlay-white-9" data-bg-img="images/bg/bg6.jpg">
+    <section class="layer-overlay overlay-white-9" data-bg-img="{{ asset('images/bg/bg6.jpg') }}">
         <div class="container pb-50">
             <div class="section-content">
                 <div class="row">
@@ -647,7 +577,8 @@
                                 </div>
                                 <div class="mt-20">
                                     <div class="thumb pull-right">
-                                        <img class="img-circle" alt="" src="images/testimonials/s2.jpg">
+                                        <img class="img-circle" alt=""
+                                            src="{{ asset('images/testimonials/s2.jpg') }}">
                                     </div>
                                     <div class="patient-details text-right pull-right mr-20 mt-10">
                                         <h5 class="author text-theme-colored">Jonathan Smith</h5>
@@ -663,7 +594,8 @@
                                 </div>
                                 <div class="mt-20">
                                     <div class="thumb pull-right">
-                                        <img class="img-circle" alt="" src="images/testimonials/s2.jpg">
+                                        <img class="img-circle" alt=""
+                                            src="{{ asset('images/testimonials/s2.jpg') }}">
                                     </div>
                                     <div class="patient-details text-right pull-right mr-20 mt-10">
                                         <h5 class="author text-theme-colored">Jonathan Smith</h5>
@@ -679,7 +611,8 @@
                                 </div>
                                 <div class="mt-20">
                                     <div class="thumb pull-right">
-                                        <img class="img-circle" alt="" src="images/testimonials/s2.jpg">
+                                        <img class="img-circle" alt=""
+                                            src="{{ asset('images/testimonials/s2.jpg') }}">
                                     </div>
                                     <div class="patient-details text-right pull-right mr-20 mt-10">
                                         <h5 class="author text-theme-colored">Jonathan Smith</h5>
@@ -695,8 +628,8 @@
     </section>
 
     <!-- Divider: Funfact -->
-    <section class="divider parallax layer-overlay overlay-theme-colored-9" data-bg-img="images/bg/bg2.jpg"
-        data-parallax-ratio="0.7">
+    <section class="divider parallax layer-overlay overlay-theme-colored-9"
+        data-bg-img="{{ asset('images/bg/bg2.jpg') }}" data-parallax-ratio="0.7">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-3 mb-md-50">
@@ -735,146 +668,6 @@
         </div>
     </section>
 
-    <!-- Section: Gallery -->
-    <section id="gallery">
-        <div class="container pt-60">
-            <div class="section-title text-center pl-0">
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-2">
-                        <h2 class="title text-uppercase text-theme-colored line-bottom-center mt-0">Our Work <span
-                                class="text-theme-color-2">gallery</span></h2>
-                        <p class="mt-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit vitae
-                            <br> eum animi
-                            iure necessitatibus repudiandae?
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="section-content">
-                <div class="row">
-                    <!-- Gallery Grid -->
-                    <div class="owl-carousel-4col" data-nav="true">
-                        <div class="item">
-                            <div class="work-gallery">
-                                <div class="gallery-thumb">
-                                    <img class="img-fullwidth" alt="" src="images/works/1.jpg">
-                                    <div class="gallery-overlay"></div>
-                                    <div class="gallery-contect">
-                                        <ul class="styled-icons icon-bordered icon-circled icon-sm">
-                                            <li><a href="#"><i class="fa fa-link"></i></a></li>
-                                            <li><a data-rel="prettyPhoto" href="images/team/1.jpg"><i
-                                                        class="fa fa-arrows"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="gallery-bottom-part text-center">
-                                    <h4 class="title text-uppercase font-raleway font-weight-600 m-0">Wheel Alignment</h4>
-                                    <h5 class="sub-title m-0">- Worked by John -</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="work-gallery">
-                                <div class="gallery-thumb">
-                                    <img class="img-fullwidth" alt="" src="images/works/2.jpg">
-                                    <div class="gallery-overlay"></div>
-                                    <div class="gallery-contect">
-                                        <ul class="styled-icons icon-bordered icon-circled icon-sm">
-                                            <li><a href="#"><i class="fa fa-link"></i></a></li>
-                                            <li><a data-rel="prettyPhoto" href="images/team/2.jpg"><i
-                                                        class="fa fa-arrows"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="gallery-bottom-part text-center">
-                                    <h4 class="title text-uppercase font-raleway font-weight-600 m-0">Engine Diognostic
-                                    </h4>
-                                    <h5 class="sub-title m-0">- Worked by Mike -</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="work-gallery">
-                                <div class="gallery-thumb">
-                                    <img class="img-fullwidth" alt="" src="images/works/3.jpg">
-                                    <div class="gallery-overlay"></div>
-                                    <div class="gallery-contect">
-                                        <ul class="styled-icons icon-bordered icon-circled icon-sm">
-                                            <li><a href="#"><i class="fa fa-link"></i></a></li>
-                                            <li><a data-rel="prettyPhoto" href="images/team/3.jpg"><i
-                                                        class="fa fa-arrows"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="gallery-bottom-part text-center">
-                                    <h4 class="title text-uppercase font-raleway font-weight-600 m-0">Oil Changing</h4>
-                                    <h5 class="sub-title m-0">- Worked by Eggy -</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="work-gallery">
-                                <div class="gallery-thumb">
-                                    <img class="img-fullwidth" alt="" src="images/works/4.jpg">
-                                    <div class="gallery-overlay"></div>
-                                    <div class="gallery-contect">
-                                        <ul class="styled-icons icon-bordered icon-circled icon-sm">
-                                            <li><a href="#"><i class="fa fa-link"></i></a></li>
-                                            <li><a data-rel="prettyPhoto" href="images/team/4.jpg"><i
-                                                        class="fa fa-arrows"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="gallery-bottom-part text-center">
-                                    <h4 class="title text-uppercase font-raleway font-weight-600 m-0">Washing Car</h4>
-                                    <h5 class="sub-title m-0">- Worked by Thomas -</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="work-gallery">
-                                <div class="gallery-thumb">
-                                    <img class="img-fullwidth" alt="" src="images/works/5.jpg">
-                                    <div class="gallery-overlay"></div>
-                                    <div class="gallery-contect">
-                                        <ul class="styled-icons icon-bordered icon-circled icon-sm">
-                                            <li><a href="#"><i class="fa fa-link"></i></a></li>
-                                            <li><a data-rel="prettyPhoto" href="images/team/3.jpg"><i
-                                                        class="fa fa-arrows"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="gallery-bottom-part text-center">
-                                    <h4 class="title text-uppercase font-raleway font-weight-600 m-0">Glass Cleaning</h4>
-                                    <h5 class="sub-title m-0">- Worked by Henry -</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="work-gallery">
-                                <div class="gallery-thumb">
-                                    <img class="img-fullwidth" alt="" src="images/works/6.jpg">
-                                    <div class="gallery-overlay"></div>
-                                    <div class="gallery-contect">
-                                        <ul class="styled-icons icon-bordered icon-circled icon-sm">
-                                            <li><a href="#"><i class="fa fa-link"></i></a></li>
-                                            <li><a data-rel="prettyPhoto" href="images/works/6.jpg"><i
-                                                        class="fa fa-arrows"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="gallery-bottom-part text-center">
-                                    <h4 class="title text-uppercase font-raleway font-weight-600 m-0">Tire Repairing</h4>
-                                    <h5 class="sub-title m-0">- Worked by Smith -</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Gallery Grid -->
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Section: blog -->
     <section id="blog" class="bg-lighter">
@@ -885,146 +678,35 @@
                         <h3 class="text-uppercase text-theme-colored title line-bottom line-height-1 mt-0">Latest <span
                                 class="text-theme-color-2 font-weight-400">News</span></h3>
                         <div class="owl-carousel-3col owl-nav-top" data-nav="true">
-                            <div class="item">
-                                <article class="post clearfix maxwidth600 mb-sm-30">
-                                    <div class="entry-header">
-                                        <div class="post-thumb thumb"> <img src="images/blog/4.jpg" alt=""
-                                                class="img-responsive img-fullwidth"> </div>
-                                        <div class="entry-meta meta-absolute text-center pl-15 pr-15">
-                                            <div class="display-table">
-                                                <div class="display-table-cell">
-                                                    <ul>
-                                                        <li><a class="text-white" href="#"><i
-                                                                    class="fa fa-thumbs-o-up"></i> 265 <br> Likes</a>
-                                                        </li>
-                                                        <li class="mt-20"><a class="text-white" href="#"><i
-                                                                    class="fa fa-comments-o"></i> 72
-                                                                <br> comments</a></li>
-                                                    </ul>
-                                                </div>
+                            @foreach ($blogs as $key => $blog)
+                                <div class="item">
+                                    <article class="post clearfix maxwidth600 mb-sm-30">
+                                        <div class="entry-header">
+                                            <div class="post-thumb thumb">
+                                                @if ($blog->photo)
+                                                    <img src="{{ $blog->photo->getUrl() }}" alt=""
+                                                        class="img-responsive img-fullwidth">
+                                                @endif
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="entry-content border-1px p-20 bg-white">
-                                        <h5 class="entry-title mt-0 pt-0"><a href="#">Best Car Repair & Service</a></h5>
-                                        <p class="text-left mb-20 mt-15 font-13">Lorem ipsum dolor sit amet, consectetur
-                                            adipiscing
-                                            elit, sed do eiusmod tempor incididunt ut labore.</p>
-                                        <a class="btn btn-flat btn-dark btn-theme-colored btn-sm pull-left" href="#">Read
-                                            more</a>
-                                        <ul class="list-inline entry-date pull-right font-12 mt-5">
-                                            <li><a class="text-theme-colored" href="#">Admin |</a></li>
-                                            <li><span class="text-theme-colored">Nov 13, 2015</span></li>
-                                        </ul>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </article>
-                            </div>
-                            <div class="item">
-                                <article class="post clearfix maxwidth600 mb-sm-30">
-                                    <div class="entry-header">
-                                        <div class="post-thumb thumb"> <img src="images/blog/1.jpg" alt=""
-                                                class="img-responsive img-fullwidth"> </div>
-                                        <div class="entry-meta meta-absolute text-center pl-15 pr-15">
-                                            <div class="display-table">
-                                                <div class="display-table-cell">
-                                                    <ul>
-                                                        <li><a class="text-white" href="#"><i
-                                                                    class="fa fa-thumbs-o-up"></i> 265 <br> Likes</a>
-                                                        </li>
-                                                        <li class="mt-20"><a class="text-white" href="#"><i
-                                                                    class="fa fa-comments-o"></i> 72
-                                                                <br> comments</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
+                                        <div class="entry-content border-1px p-20 bg-white">
+                                            <h5 class="entry-title mt-0 pt-0"><a href="#">{{ $blog->title ?? '' }}</a>
+                                            </h5>
+                                            <p class="text-left mb-20 mt-15 font-13">{!! Str::limit($blog->description) !!}</p>
+                                            <a class="btn btn-flat btn-dark btn-theme-colored btn-sm pull-left"
+                                                href="#">Read
+                                                more</a>
+                                            <ul class="list-inline entry-date pull-right font-12 mt-5">
+                                                <li><a class="text-theme-colored" href="#">Admin |</a></li>
+                                                <li><span
+                                                        class="text-theme-colored">{{ $blog->created_at->diffForHumans() }}</span>
+                                                </li>
+                                            </ul>
+                                            <div class="clearfix"></div>
                                         </div>
-                                    </div>
-                                    <div class="entry-content border-1px p-20 bg-white">
-                                        <h5 class="entry-title mt-0 pt-0"><a href="#">Best Car Repair & Service</a></h5>
-                                        <p class="text-left mb-20 mt-15 font-13">Lorem ipsum dolor sit amet, consectetur
-                                            adipiscing
-                                            elit, sed do eiusmod tempor incididunt ut labore.</p>
-                                        <a class="btn btn-flat btn-dark btn-theme-colored btn-sm pull-left" href="#">Read
-                                            more</a>
-                                        <ul class="list-inline entry-date pull-right font-12 mt-5">
-                                            <li><a class="text-theme-colored" href="#">Admin |</a></li>
-                                            <li><span class="text-theme-colored">Nov 13, 2015</span></li>
-                                        </ul>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </article>
-                            </div>
-                            <div class="item">
-                                <article class="post clearfix maxwidth600 mb-sm-30">
-                                    <div class="entry-header">
-                                        <div class="post-thumb thumb"> <img src="images/blog/4.jpg" alt=""
-                                                class="img-responsive img-fullwidth"> </div>
-                                        <div class="entry-meta meta-absolute text-center pl-15 pr-15">
-                                            <div class="display-table">
-                                                <div class="display-table-cell">
-                                                    <ul>
-                                                        <li><a class="text-white" href="#"><i
-                                                                    class="fa fa-thumbs-o-up"></i> 265 <br> Likes</a>
-                                                        </li>
-                                                        <li class="mt-20"><a class="text-white" href="#"><i
-                                                                    class="fa fa-comments-o"></i> 72
-                                                                <br> comments</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="entry-content border-1px p-20 bg-white">
-                                        <h5 class="entry-title mt-0 pt-0"><a href="#">Best Car Repair & Service</a></h5>
-                                        <p class="text-left mb-20 mt-15 font-13">Lorem ipsum dolor sit amet, consectetur
-                                            adipiscing
-                                            elit, sed do eiusmod tempor incididunt ut labore.</p>
-                                        <a class="btn btn-flat btn-dark btn-theme-colored btn-sm pull-left" href="#">Read
-                                            more</a>
-                                        <ul class="list-inline entry-date pull-right font-12 mt-5">
-                                            <li><a class="text-theme-colored" href="#">Admin |</a></li>
-                                            <li><span class="text-theme-colored">Nov 13, 2015</span></li>
-                                        </ul>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </article>
-                            </div>
-                            <div class="item">
-                                <article class="post clearfix maxwidth600 mb-sm-30">
-                                    <div class="entry-header">
-                                        <div class="post-thumb thumb"> <img src="images/blog/1.jpg" alt=""
-                                                class="img-responsive img-fullwidth"> </div>
-                                        <div class="entry-meta meta-absolute text-center pl-15 pr-15">
-                                            <div class="display-table">
-                                                <div class="display-table-cell">
-                                                    <ul>
-                                                        <li><a class="text-white" href="#"><i
-                                                                    class="fa fa-thumbs-o-up"></i> 265 <br> Likes</a>
-                                                        </li>
-                                                        <li class="mt-20"><a class="text-white" href="#"><i
-                                                                    class="fa fa-comments-o"></i> 72
-                                                                <br> comments</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="entry-content border-1px p-20 bg-white">
-                                        <h5 class="entry-title mt-0 pt-0"><a href="#">Best Car Repair & Service</a></h5>
-                                        <p class="text-left mb-20 mt-15 font-13">Lorem ipsum dolor sit amet, consectetur
-                                            adipiscing
-                                            elit, sed do eiusmod tempor incididunt ut labore.</p>
-                                        <a class="btn btn-flat btn-dark btn-theme-colored btn-sm pull-left" href="#">Read
-                                            more</a>
-                                        <ul class="list-inline entry-date pull-right font-12 mt-5">
-                                            <li><a class="text-theme-colored" href="#">Admin |</a></li>
-                                            <li><span class="text-theme-colored">Nov 13, 2015</span></li>
-                                        </ul>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </article>
-                            </div>
+                                    </article>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -1037,14 +719,8 @@
         <div class="container pt-0 pb-20">
             <div class="row">
                 <div class="call-to-action">
-                    <div class="col-md-9">
-                        <h3 class="mt-5 text-white font-weight-600">Workshop The Best Car Servicing & Reparing HTML
-                            Template
-                            Ever!</h3>
-                    </div>
-                    <div class="col-md-3 text-right flip sm-text-center">
-                        <a class="btn btn-flat btn-theme-colored btn-lg mt-5" href="#">Purchase Now<i
-                                class="fa fa-angle-double-right font-16 ml-10"></i></a>
+                    <div class="col-md-12">
+                        <h3 class="mt-5 text-white font-weight-600">Workshop The Best Car Servicing & Reparing</h3>
                     </div>
                 </div>
             </div>

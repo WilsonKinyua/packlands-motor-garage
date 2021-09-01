@@ -44,7 +44,7 @@
                             </a>
                         </li>
                     @endcan
-                    @can('service_offered_by_access')
+                    {{-- @can('service_offered_by_access')
                         <li class="c-sidebar-nav-item">
                             <a href="{{ route("admin.service-offered-bies.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/service-offered-bies") || request()->is("admin/service-offered-bies/*") ? "c-active" : "" }}">
                                 <i class="fa-fw fas fa-pencil-alt c-sidebar-nav-icon">
@@ -53,7 +53,7 @@
                                 {{ trans('cruds.serviceOfferedBy.title') }}
                             </a>
                         </li>
-                    @endcan
+                    @endcan --}}
                 </ul>
             </li>
         @endcan
